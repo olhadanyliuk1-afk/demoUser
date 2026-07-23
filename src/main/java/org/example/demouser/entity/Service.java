@@ -5,12 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -34,4 +36,7 @@ public class Service {
 
     @Column(name = "duration_minutes", nullable = false)
     private Integer durationMinutes;
+
+    @OneToMany(mappedBy = "service")
+    private List<DoctorService> doctorServices;
 }
