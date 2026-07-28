@@ -12,13 +12,17 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
 @Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -29,12 +33,6 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "appointment_id")
     private Long appointmentId;
-
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
-
-    @Column(name = "doctor_id", nullable = false)
-    private Long doctorId;
 
     @Column(name = "appointment_date", nullable = false)
     private Date appointmentDate;
