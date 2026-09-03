@@ -32,6 +32,6 @@ public class DoctorService {
     @MapsId("serviceId")
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Service service;
+    private MedicalService medicalService;
 }
 

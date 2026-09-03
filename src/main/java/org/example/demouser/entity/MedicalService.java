@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,7 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "service")
-public class Service {
+public class MedicalService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_id")
@@ -42,7 +41,7 @@ public class Service {
     @Column(name = "duration_minutes", nullable = false)
     private Integer durationMinutes;
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(mappedBy = "medicalService")
     private List<DoctorService> doctorServices;
 
 }

@@ -3,9 +3,11 @@ package org.example.demouser.mapper;
 import org.example.demouser.controller.dto.UserCreateDTO;
 import org.example.demouser.controller.dto.UserResponseDTO;
 import org.example.demouser.entity.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
-    public static UserResponseDTO toDTO(User user) {
+    public UserResponseDTO toDTO(User user) {
         UserResponseDTO dto = new UserResponseDTO();
 
         dto.setId(user.getId());
@@ -16,7 +18,7 @@ public class UserMapper {
         return dto;
     }
 
-    public static User toEntity(UserCreateDTO dto) {
+    public User toEntity(UserCreateDTO dto) {
         User user = new User();
 
         user.setEmail(dto.getEmail());

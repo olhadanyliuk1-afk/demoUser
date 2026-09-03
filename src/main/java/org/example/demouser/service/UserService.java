@@ -15,9 +15,11 @@ import java.util.Optional;
 public class UserService {
 
     public final UserRepository userRepository;
+    public final UserMapper userMapper;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
+        this.userMapper = userMapper;
     }
 
     public UserResponseDTO createUser(UserCreateDTO dto) {
@@ -26,19 +28,19 @@ public class UserService {
                     "Email already exists : " + dto.getEmail()
             );
         }
-        User user = UserMapper.toEntity(dto);
+        User user = userMapper.toEntity(dto);
         User savedUser = userRepository.save(user);
-        return UserMapper.toDTO(savedUser);
+        return userMapper.toDTO(savedUser);
     }
 
     public List<UserResponseDTO> getAllUsers() {
         return userRepository.findAll().stream()
-                .map(UserMapper::toDTO)
+                .map(userMapper::toDTO)
                 .toList();
     }
 
     public Optional<UserResponseDTO> getById(Long id) {
-        return userRepository.findById(id).map(UserMapper::toDTO);
+        return userRepository.findById(id).map(userMapper::toDTO);
     }
 }
 

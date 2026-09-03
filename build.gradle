@@ -26,6 +26,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.5.3'
     testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-data-rest-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-restclient-test'
@@ -34,9 +35,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-webservices-test'
     testCompileOnly 'org.projectlombok:lombok'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.2")
+    testImplementation("org.mockito:mockito-core:5.14.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
+    testImplementation 'junit:junit:4.13.2'
     testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
-tasks.named('test') {
+test {
+    // Вказує Gradle використовувати JUnit Platform для запуску тестів
     useJUnitPlatform()
 }

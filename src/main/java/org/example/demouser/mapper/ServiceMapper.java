@@ -2,27 +2,27 @@ package org.example.demouser.mapper;
 
 import org.example.demouser.controller.dto.ServiceCreateDTO;
 import org.example.demouser.controller.dto.ServiceResponceDTO;
-import org.example.demouser.entity.Service;
+import org.example.demouser.entity.MedicalService;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ServiceMapper {
-    public Service toEntity(ServiceCreateDTO dto) {
-        Service service = new Service();
-        service.setServiceName(dto.getServiceName());
-        service.setDescription(dto.getDescription());
-        service.setPrice(dto.getPrice());
-        service.setDurationMinutes(dto.getDurationMinutes());
-        return service;
+    public MedicalService toEntity(ServiceCreateDTO dto) {
+        MedicalService medicalService = new MedicalService();
+        medicalService.setServiceName(dto.getServiceName());
+        medicalService.setDescription(dto.getDescription());
+        medicalService.setPrice(dto.getPrice());
+        medicalService.setDurationMinutes(dto.getDurationMinutes());
+        return medicalService;
     }
 
-    public ServiceResponceDTO toDTO(Service service) {
+    public ServiceResponceDTO toDTO(MedicalService medicalService) {
         ServiceResponceDTO dto = new ServiceResponceDTO();
-        dto.setId(service.getServiceId());
-        dto.setServiceName(service.getServiceName());
-        dto.setDescription(service.getDescription());
-        dto.setPrice(String.valueOf(service.getPrice()));
-        dto.setDurationMinutes(String.valueOf(service.getDurationMinutes()));
+        dto.setId(medicalService.getServiceId());
+        dto.setServiceName(medicalService.getServiceName());
+        dto.setDescription(medicalService.getDescription());
+        dto.setPrice(String.valueOf(medicalService.getPrice()));
+        dto.setDurationMinutes(String.valueOf(medicalService.getDurationMinutes()));
         return dto;
     }
 

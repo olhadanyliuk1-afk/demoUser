@@ -18,7 +18,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-
 public class UserController {
     private final UserService userService;
 
